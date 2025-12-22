@@ -1,0 +1,49 @@
+# Root of project.
+# Don't inherit same config files from the parent directories.
+root = true
+
+####
+#### Global parameters EditorConfig
+####
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
+
+####
+#### EditorConfig
+#### Don't modify unnecessarily!
+####
+[*.editorconfig]
+charset = utf-8
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
+
+####
+#### Markdown
+####
+[*.{md,markdown}]
+indent_style = space
+trim_trailing_whitespace = false
+
+####
+#### Shell/Bash scripts
+####
+[*.{sh,bash}]
+end_of_line = lf
+insert_final_newline = true
+
+####
+#### Windows CMD and PowerShell scripts
+####
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
+insert_final_newline = true

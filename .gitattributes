@@ -1,0 +1,67 @@
+# All files
+*               text=auto
+
+# EditorConfig
+*.editorconfig  text eol=lf
+
+# Git special files
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+.gitkeep        text eol=lf
+.gitmodules     text eol=lf
+
+# License
+LICENSE         text eol=lf
+.license        text eol=lf
+
+# Markdown
+*.md            text eol=lf
+*.markdown      text eol=lf
+
+# Plain text
+*.txt           text eol=lf
+
+# Makefiles
+makefile        text eol=lf
+Makefile        text eol=lf
+*.mk            text eol=lf
+
+# XML and JSON
+*.xml           text eol=lf
+*.json          text eol=lf
+
+# Shell scirpts
+*.sh            text eol=lf
+*.bash          text eol=lf
+
+# Windows CMD and PowerShell scripts
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+
+# Linker scripts
+*.ld            text eol=lf
+
+# C
+*.h             text eol=lf
+*.c             text eol=lf
+
+# C++
+*.hpp           text eol=lf
+*.h++           text eol=lf
+*.hxx           text eol=lf
+*.cpp           text eol=lf
+*.c++           text eol=lf
+*.cxx           text eol=lf
+
+# C#
+*.cs            text eol=lf
+
+# Java
+*.java          text eol=lf
+
+# Kotlin
+*.kt            text eol=lf
+
+# Python
+*.py            text eol=lf
