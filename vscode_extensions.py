@@ -9,7 +9,7 @@ import subprocess
 
 VERSION_MAJOR = 1
 VERSION_MINOR = 0
-VERSION_PATCH = 0
+VERSION_PATCH = 1
 VERSION =   (VERSION_MAJOR & 0xFF) << 24 | \
             (VERSION_MINOR & 0xFF) << 16 | \
             (VERSION_PATCH & 0xFFFF)
@@ -182,7 +182,7 @@ if __name__ == "__main__":
         dest = 'VSCodeExec',
         action = 'store',
         type = str,
-        default = 'code',
+        default = 'code' if platform.system() == 'Linux' else 'code.cmd',
         metavar = 'PATH',
         help = 'specify path to VSCode executable'
     )
@@ -258,9 +258,15 @@ if __name__ == "__main__":
 
     for Ext in Extensions2Install:
         print(f'Installing {Ext}: ', end = '')
-        try:
-            subprocess.run([ARGS['VSCodeExec'], '--install-extension', Ext], check = True, stdout = NullFile)
+        Result = subprocess.run([
+            ARGS['VSCodeExec'],
+            '--install-extension',
+            Ext
+        ], check = False, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+        if Result.returncode == 0:
             print(f'{Fore.GREEN}success{Fore.RESET}')
-        except Exception as e:
+        else:
             print(f'{Fore.RED}failure{Fore.RESET}')
-            print(f'{MSG_ERROR} installation error! {e}')
+            # Print error onto STDOUT exactly, because this is not critical failure!
+            # and it's must be ignored in silent mode
+            print(f'{MSG_ERROR} installation error! {Result.stderr.decode('utf-8')}', file = sys.stdout)
