@@ -9,7 +9,7 @@ import subprocess
 
 VERSION_MAJOR = 1
 VERSION_MINOR = 0
-VERSION_PATCH = 1
+VERSION_PATCH = 2
 VERSION =   (VERSION_MAJOR & 0xFF) << 24 | \
             (VERSION_MINOR & 0xFF) << 16 | \
             (VERSION_PATCH & 0xFFFF)
@@ -239,7 +239,7 @@ if __name__ == "__main__":
         for Ext in ExtensionsList:
             print(f'Try for "{Ext}":', file = VerboseFile)
             IsFound = False
-            for vsix in Path(ARGS['Path2VSIX']).glob('*.vsix'):
+            for vsix in sorted(Path(ARGS['Path2VSIX']).glob('*.vsix')):
                 PathToVSIX = os.path.join(ARGS['Path2VSIX'], vsix.name)
                 print(f' Test {PathToVSIX}: ', end = '', file = VerboseFile)
                 if Ext.lower() in vsix.name:
